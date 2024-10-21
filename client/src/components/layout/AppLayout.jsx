@@ -4,6 +4,7 @@ import Title from '../../shared/Title'
 import { Grid } from '@mui/material'
 import ChatList from '../../../specific/ChatList';
 import sampleChats from '../../../constants/sampleData';
+import Profile from '../../../specific/Profile';
 
 const AppLayout = () => (WrappedComponent) => {
   return (props) => {
@@ -15,7 +16,7 @@ const AppLayout = () => (WrappedComponent) => {
         {/* Grid Layout */}
         <Grid container sx={{ height: 'calc(100vh - 4rem)' }}>
           {/* First Grid item - hidden on xs, visible on sm and above */}
-          <Grid item sm={4} md={3} sx={{ display: { xs: 'none', sm: 'block' }, height: '100%', bgcolor: 'primary.main' }}>
+          <Grid item sm={4} md={3} sx={{ display: { xs: 'none', sm: 'block' }, height: '100%', bgcolor: 'grey' }}>
             <ChatList chats={sampleChats} chatId={"1"} />
           </Grid>
 
@@ -26,7 +27,7 @@ const AppLayout = () => (WrappedComponent) => {
 
           {/* Third Grid item - hidden on xs, visible on md and above */}
           <Grid item md={4} lg={3} sx={{ display: { xs: 'none', md: 'block' }, height: '100%', padding: '2rem', bgcolor: 'rgba(0,0,0,0.85)' }}>
-            3
+            <Profile />
           </Grid>
         </Grid>
 

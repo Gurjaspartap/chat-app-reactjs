@@ -14,11 +14,11 @@ const ChatItem = ({ avatar = [], name, _id, groupChat = false, sameSender, isOnl
         gap: "1rem",
         padding: "1rem",
         cursor: "pointer",
-        backgroundColor: sameSender ? "black" : "unset",
+        backgroundColor: sameSender ? "grey" : "white",
         position: "relative"
       }}>
         {/* avatar */}
-<AvatarCard avatar={avatar} />
+        <AvatarCard avatar={avatar} />
         <Stack>
           <Typography>{name}</Typography>
           {newMessageAlert && (<Typography>{newMessageAlert.count} New Message  </Typography>)}
