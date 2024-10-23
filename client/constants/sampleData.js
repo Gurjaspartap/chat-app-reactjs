@@ -106,3 +106,44 @@ const sampleChats = [
 ];
 
 export default sampleChats;
+
+export const sampleUsers = [
+  {
+    avatar: [
+      "https://www.gravatar.com/avatar/2c7d99fe281ecd3bcd65ab915bac6dd5?s=250",
+    ],
+    name: "Alice Johnson",
+    _id: "1",
+  },
+  {
+    avatar: ["https://example.com/avatar2.jpg"],
+    name: "Bob Smith",
+    _id: "2",
+  },
+  {
+    avatar: ["https://example.com/avatar3.jpg"],
+    name: "Charlie Brown",
+    _id: "3",
+  },
+  {
+    avatar: ["https://example.com/avatar4.jpg"],
+    name: "Diana Prince",
+    _id: "4",
+  },
+];
+export const sampleNotifications = [
+  {
+    sender: {
+      avatar: "https://example.com/avatar2.jpg",
+      name: "John Doe",
+    },
+    _id: "1",
+  },
+  {
+    sender: {
+      avatar: "https://example.com/avatar3.jpg",
+      name: "Jane Smith",
+    },
+    _id: "2",
+  },
+];
