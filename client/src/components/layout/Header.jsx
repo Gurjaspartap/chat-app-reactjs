@@ -2,7 +2,7 @@ import { AppBar, Backdrop, Box, IconButton, Toolbar, Tooltip, Typography } from 
 import React, { Suspense, useState, lazy } from 'react'
 import { orange } from '../../../constants/color'
 import { Add as AddIcon, Logout as LogoutIcon, Menu as MenuIcon, Search as SearchIcon, Notifications as NotificationsIcon, Search } from "@mui/icons-material"
-const SearchDialog = lazy(() => import('../../../specific/SearchDialog'));
+const SearchDialog = lazy(() => import('../../../specific/Search'));
 const NotificationsDialog = lazy(() => import('../../../specific/NotificationsDialog'));
 const NewGroupDialog = lazy(() => import('../../../specific/NewGroupDialog'));
 
