@@ -1,9 +1,10 @@
 import React from 'react'
 import AppLayout from '../components/layout/AppLayout'
+import { Typography } from '@mui/material';
 
 const Home = () => {
   return (
-    <div>Home</div>
+    <Typography p={"2rem"} varient="h5" textAlign={"center"}>Select a friend to chat</Typography>
   )
 }
 
