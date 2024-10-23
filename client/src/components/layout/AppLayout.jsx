@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Header from './Header'
 import Title from '../../shared/Title'
 import { Grid } from '@mui/material'
@@ -8,6 +8,10 @@ import Profile from '../../../specific/Profile';
 
 const AppLayout = () => (WrappedComponent) => {
   return (props) => {
+    const [selectedChat, useSelectedChat] = useState(null)
+    const handleSelectedChat = (chatId) => {
+      useSelectedChat(chatId)
+    }
     return (
       <div>
         <Title />
@@ -22,7 +26,7 @@ const AppLayout = () => (WrappedComponent) => {
 
           {/* Second Grid item - full width on xs, reduces on larger screens */}
           <Grid item xs={12} md={8} lg={6} sx={{ height: '100%' }}>
-            2
+            <WrappedComponent {...props} chatId={selectedChat} />
           </Grid>
 
           {/* Third Grid item - hidden on xs, visible on md and above */}
