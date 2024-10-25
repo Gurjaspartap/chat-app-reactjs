@@ -35,8 +35,7 @@ const AppLayout = () => (WrappedComponent) => {
           </Grid>
         </Grid>
 
-        {/* Wrapped component */}
-        <WrappedComponent {...props} />
+
 
         <div>Footer</div>
       </div>

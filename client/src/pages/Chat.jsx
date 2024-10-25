@@ -15,23 +15,25 @@ const Chat = () => {
         }}
       >
         {/* {Messages Renders} */}
-        <form style={{
-          height: "10%"
-        }} >
-          <Stack>
-            <IconButton>
-              <AttachFileIcon />
-            </IconButton>
-            <InputBox />
-            <IconButton>
-              <SendIcon />
-            </IconButton>
-          </Stack>
+      </Stack >
+
+      <form style={{
+        height: "10%"
+      }} >
+        <Stack direction={"row"} height={"100%"} padding={"1rem"} alignItems={"center"} position={"relative"}>
+          <IconButton>
+            <AttachFileIcon />
+          </IconButton>
+          <InputBox placeholder='Type a message' />
+          <IconButton type='submit' sx={{ backgroundColor: "#ea7070", "&:hover": { backgroundColor: "error.dark" } }} >
+            <SendIcon />
+          </IconButton>
+        </Stack>
 
 
 
-        </form>
-      </Stack>
+      </form >
+
     </>
   )
 }
