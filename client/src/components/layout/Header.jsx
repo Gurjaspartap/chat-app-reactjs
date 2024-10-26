@@ -1,7 +1,8 @@
 import { AppBar, Backdrop, Box, IconButton, Toolbar, Tooltip, Typography } from '@mui/material'
 import React, { Suspense, useState, lazy } from 'react'
 import { orange } from '../../../constants/color'
-import { Add as AddIcon, Logout as LogoutIcon, Menu as MenuIcon, Search as SearchIcon, Notifications as NotificationsIcon, Search } from "@mui/icons-material"
+import { Add as AddIcon, Logout as LogoutIcon, Menu as MenuIcon, Search as SearchIcon, Notifications as NotificationsIcon, Group as GroupIcon, Search } from "@mui/icons-material"
+import Groups from '../../pages/Groups';
 const SearchDialog = lazy(() => import('../../../specific/Search'));
 const NotificationsDialog = lazy(() => import('../../../specific/NotificationsDialog'));
 const NewGroupDialog = lazy(() => import('../../../specific/NewGroupDialog'));
@@ -19,6 +20,9 @@ const Header = () => {
   const openNewGroup = () => {
     setIsNewGroup(prev => !prev)
   }
+  const openManageGroup = () => {
+    setIsOpenManageGroup(prev => !prev)
+  }
   const openNotification = () => {
     setIsNotification(prev => !prev)
   }
@@ -29,6 +33,7 @@ const Header = () => {
   const [isSearch, setIsSearch] = useState(false)
   const [isNewGroup, setIsNewGroup] = useState(false)
   const [isNotification, setIsNotification] = useState(false)
+  const [isOpenManageGroup, setIsOpenManageGroup] = useState(false)
 
 
   return <>
@@ -53,6 +58,11 @@ const Header = () => {
             <Tooltip title="New Group" >
               <IconButton color='inherit' size='large' onClick={openNewGroup} >
                 <AddIcon />
+              </IconButton>
+            </Tooltip>
+            <Tooltip title="Manage Group" >
+              <IconButton color='inherit' size='large' onClick={openManageGroup} >
+                <GroupIcon />
               </IconButton>
             </Tooltip>
 
@@ -90,6 +100,13 @@ const Header = () => {
       isNewGroup && (
         <Suspense fallback={<Backdrop open />}>
           <NewGroupDialog />
+        </Suspense>
+      )
+    }
+    {
+      isOpenManageGroup && (
+        <Suspense fallback={<Backdrop open />}>
+          <Groups />
         </Suspense>
       )
     }
