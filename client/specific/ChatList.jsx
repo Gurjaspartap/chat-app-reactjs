@@ -9,7 +9,10 @@ const ChatList = ({ w = "100%", chats = [], chatId, onlineUsers = [], newMessage
   },
 ], handleDeleteChat, }) => {
   return (
-    <Stack width={w} direction={"column"} >
+    <Stack width={w} direction={"column"} sx={{
+      maxHeight: "calc(100vh - 4rem)", // Adjust as needed
+      overflowY: "auto", // Enables vertical scrolling
+    }} >
       {chats?.map((data) => {
         return <ChatItem key={data._id} {...data} />
       })}
