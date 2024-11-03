@@ -1,18 +1,35 @@
-import { Done as DoneIcon, Edit as EditIcon, Key, KeyboardBackspace as KeyboardBackspaceIcon, Menu as MenuIcon } from '@mui/icons-material';
-import { Box, Drawer, Grid, IconButton, Stack, TextField, Tooltip, Typography } from '@mui/material';
-import React, { memo, useEffect, useState } from 'react';
+import { Add as AddIcon, Delete as DeleteIcon, Done as DoneIcon, Edit as EditIcon, KeyboardBackspace as KeyboardBackspaceIcon, Menu as MenuIcon } from '@mui/icons-material';
+import { Box, Button, Drawer, Grid, IconButton, Stack, TextField, Tooltip, Typography } from '@mui/material';
+import React, { lazy, memo, Suspense, useEffect, useState } from 'react';
 import { Link, useNavigate, useSearchParams } from 'react-router-dom';
 import AvatarCard from '../shared/AvatarCard';
 import sampleChats from '../../constants/sampleData';
+// import ConfirmDeleteDialog from '../components/dialogs/ConfirmDeleteDialog';
+const ConfirmDeleteDialog = lazy(() => import("../components/dialogs/ConfirmDeleteDialog"))
+const AddMemberDialog = lazy(() => import("../components/dialogs/AddMemberDialog"))
 
+const isAddMember = true;
 const Groups = () => {
   const chatId = useSearchParams()[0].get("group");
   const [groupName, setGroupName] = useState("")
   const [groupNameUpdatedValue, setGroupNameUpdatedValue] = useState("")
+  const [confirmDeleteDialog, setConfirmDeleteDialog] = useState(false)
+  const openAddMemberHandler = () => {
+    console.log("add member")
+  }
+
+  const openConfirmDeleteHandler = () => {
+    setConfirmDeleteDialog(true)
+    console.log("delete group")
+  }
+  const confirmDeleteHandler = () => {
+    setConfirmDeleteDialog(false)
+
+  }
 
   const navigate = useNavigate();
   console.log("chatId", chatId)
-  const [isEdit, setIsEdit] = useState(true)
+  const [isEdit, setIsEdit] = useState(false)
   const navigateBack = () => {
     navigate("/");
   };
@@ -34,6 +51,7 @@ const Groups = () => {
   };
   const handleMobileClose = () => {
     setIsMobileMenuOpen(false);
+    console.log("handleMobileClose")
   };
 
   const IconBtns = (
@@ -84,6 +102,11 @@ const Groups = () => {
       <IconButton onClick={() => setIsEdit(true)} > <EditIcon /> </IconButton>
     </>}
   </Stack>
+  const ButtonGroup = <Stack direction={{ sm: "row", xs: "column-reverse" }} spacing={"1rem"} p={{ sm: "1rem", xs: "0", md: "1rem 4rem" }} >
+    <Button size='large' color='error' variant='outlined' startIcon={<DeleteIcon />} onClick={openConfirmDeleteHandler}>Delete Group</Button>
+    <Button size='large' variant='contained' startIcon={<AddIcon />} onClick={openAddMemberHandler} >Add member</Button>
+
+  </Stack>
   return (
     <Grid container height={"100vh"}>
       <Grid
@@ -109,8 +132,30 @@ const Groups = () => {
         }}
       >
         {IconBtns}
-        {GroupName && GroupName}
+        {GroupName && (
+          <>
+            {GroupName}
+            <Typography margin={"2rem"} alignSelf={"flex-start"} variant='body1'>
+              Members
+            </Typography>
+            <Stack maxWidth={"45rem"} width={"100%"} boxSizing={"border-box"} padding={{ sm: "1rem", xs: "0", md: "1rem 4 rem " }} spacing={"2rem"} bgcolor={"bisque"} height={"50vh"} overflow={"auto"} >
+              {/* Members */}
+            </Stack>
+            {/* Button Group */}
+            {ButtonGroup}
+          </>
+        )}
       </Grid>
+      {
+        isAddMember && (<Suspense fallback={<div>Loading...</div>}>
+          <AddMemberDialog />
+        </Suspense>)
+      }
+      {
+        confirmDeleteDialog && (<Suspense fallback={<div>Loading...</div>}>
+          <ConfirmDeleteDialog open={confirmDeleteDialog} handleClose={() => setConfirmDeleteDialog(false)} confirmDeleteHandler={confirmDeleteHandler} />
+        </Suspense>)
+      }
       <Drawer open={isMobileMenuOpen} onClose={handleMobileClose} sx={{
         display: { xs: "block", sm: "none" },
       }} >

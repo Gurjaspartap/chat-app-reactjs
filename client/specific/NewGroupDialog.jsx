@@ -7,7 +7,6 @@ const NewGroup = () => {
 
   const [members, setMembers] = useState(sampleUsers);
   const [selectedMembers, setSelectedMembers] = useState([]);
-  console.log("selectedMembers", selectedMembers);
   const selectMemberHandler = (id) => {
     if (selectedMembers.includes(id)) {
       setSelectedMembers(prev => prev.filter(member => member !== id))

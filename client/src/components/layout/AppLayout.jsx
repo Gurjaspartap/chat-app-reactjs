@@ -8,9 +8,9 @@ import Profile from '../../../specific/Profile';
 
 const AppLayout = () => (WrappedComponent) => {
   return (props) => {
-    const [selectedChat, useSelectedChat] = useState(null)
+    const [selectedChat, setSelectedChat] = useState(null)
     const handleSelectedChat = (chatId) => {
-      useSelectedChat(chatId)
+      setSelectedChat(chatId);
     }
     return (
       <div>
