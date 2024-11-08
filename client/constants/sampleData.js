@@ -181,3 +181,114 @@ export const sampleMessage = [
     createdAt: "2024-10-26T07:00:00Z",
   },
 ];
+export const dashboardData = {
+  users: [
+    {
+      name: "Alice Johnson",
+      avatar: ["https://example.com/avatar2.jpg"],
+      _id: "1",
+      username: "alice",
+      friends: 20,
+      groups: 5,
+    },
+    {
+      name: "Bob Smith",
+      avatar: ["https://example.com/avatar3.jpg"],
+      _id: "2",
+      username: "bob",
+      friends: 15,
+      groups: 3,
+    },
+    {
+      name: "Carol Williams",
+      avatar: ["https://example.com/avatar4.jpg"],
+      _id: "3",
+      username: "carol",
+      friends: 25,
+      groups: 8,
+    },
+    {
+      name: "David Brown",
+      avatar: ["https://example.com/avatar5.jpg"],
+      _id: "4",
+      username: "david",
+      friends: 30,
+      groups: 10,
+    },
+    {
+      name: "Emma Davis",
+      avatar: ["https://example.com/avatar6.jpg"],
+      _id: "5",
+      username: "emma",
+      friends: 12,
+      groups: 4,
+    },
+  ],
+  chats: [
+    {
+      name: "Hannah Montana",
+      _id: "chat8",
+      groupChat: false,
+      members: ["1", "2", "3"],
+      totalMembers: 3,
+      totalMessages: 10,
+      creator: {
+        name: "chairman",
+        avatar:
+          "https://www.gravatar.com/avatar/2c7d99fe281ecd3bcd65ab915bac6dd5?s=250",
+      },
+    },
+    {
+      name: "Study Group",
+      _id: "chat9",
+      groupChat: true,
+      members: ["4", "5", "6", "7"],
+      totalMembers: 4,
+      totalMessages: 25,
+      creator: {
+        name: "professor",
+        avatar:
+          "https://www.gravatar.com/avatar/1d91f95de92fd5ed308daebf846b04bd?s=250",
+      },
+    },
+    {
+      name: "Office Chat",
+      _id: "chat10",
+      groupChat: false,
+      members: ["8", "9"],
+      totalMembers: 2,
+      totalMessages: 15,
+      creator: {
+        name: "manager",
+        avatar:
+          "https://www.gravatar.com/avatar/3b0c284e7ffec5e7ed68d5d730a4db65?s=250",
+      },
+    },
+    {
+      name: "Family Chat",
+      _id: "chat11",
+      groupChat: true,
+      members: ["10", "11", "12", "13"],
+      totalMembers: 4,
+      totalMessages: 30,
+      creator: {
+        name: "mom",
+        avatar:
+          "https://www.gravatar.com/avatar/5f4c1f8f79a30f2c8c1b6b3dff4b0f27?s=250",
+      },
+    },
+    {
+      name: "Friends Group",
+      _id: "chat12",
+      groupChat: true,
+      members: [{ _id: "14", avatar: "" }, "15", "16"],
+      totalMembers: 3,
+      totalMessages: 20,
+      creator: {
+        name: "bestie",
+        avatar:
+          "https://www.gravatar.com/avatar/4e5ef96bf97e2915b41b0c9188165b8d?s=250",
+      },
+    },
+  ],
+};

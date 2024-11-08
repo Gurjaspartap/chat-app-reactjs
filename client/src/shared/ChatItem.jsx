@@ -15,7 +15,8 @@ const ChatItem = ({ avatar = [], name, _id, groupChat = false, sameSender, isOnl
         padding: "1rem",
         cursor: "pointer",
         backgroundColor: sameSender ? "grey" : "white",
-        position: "relative"
+        position: "relative",
+        borderRadius: "1rem",
       }}>
         {/* avatar */}
         <AvatarCard avatar={avatar} />

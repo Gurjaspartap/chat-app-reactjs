@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Avatar, Button, Dialog, DialogTitle, ListItem, Stack, TextField, Typography } from '@mui/material';
+import { Avatar, Button, Dialog, DialogTitle, ListItem, Stack, TextField, Typography, useMediaQuery, useTheme } from '@mui/material';
 import { sampleUsers } from '../constants/sampleData';
 import UserItem from '../src/shared/UserItem';
 const NewGroup = () => {
@@ -19,9 +19,13 @@ const NewGroup = () => {
   console.log("selectedMembers", selectedMembers)
   const submitHandler = () => { };
   const closeHandler = () => { }
+  const theme = useTheme();
+  const fullScreen = useMediaQuery(theme.breakpoints.down("sm"));
+  const maxWidth = "lg";
   return (
-    <Dialog open onClose={closeHandler}>
-      <Stack p={2} spacing={2}>
+    <Dialog open onClose={closeHandler} maxWidth={maxWidth} fullScreen={fullScreen}
+    >
+      <Stack p={2} spacing={2} width={"25rem"}>
         <DialogTitle>Create New Group</DialogTitle>
 
         {/* Group name input */}
